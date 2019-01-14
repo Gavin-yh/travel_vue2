@@ -7,7 +7,7 @@
 import homeheader from './components/header.vue'
 
 export default {
-    name: "homepage",
+    name : "homepage",
     components: {
         homeheader
     }
