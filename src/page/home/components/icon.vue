@@ -10,6 +10,7 @@
                 </div>
             </div>
         </swiper-slide>
+        <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
 </template>
 
@@ -56,6 +57,7 @@ export default {
                 text:"野生动物园"
             }],
             swiperOption:{
+                pagination:".swiper-pagination",
             }
         }
     },
@@ -95,17 +97,22 @@ export default {
                 top 0 
                 left 0 
                 right 0
-                bottom .44rem
+                bottom .6rem
                 img
                     display block
-                    height 100%
+                    height 80%
                     margin:0 auto
             .info
                 position absolute 
                 bottom 0
                 font-size 16px
-                height .44rem
-                line-height .44rem
+                height .6rem
+                line-height .6rem
+                padding-bottom .3rem
                 width 100%
                 text-align center
+                p
+                    overflow hidden 
+                    white-space nowrap 
+                    text-overflow ellipsis
 </style>
