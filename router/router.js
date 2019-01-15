@@ -3,12 +3,16 @@ import vue from 'vue'
 
 vue.use(router)
 
+import lookBar from '../src/page/lookBar/lookBar.vue'
+import homepage from '../src/page/home/home.vue'
 export default new router({
     mode :"history",
     routes:[{
-        path:'/about'
+        path:'/look-bar',
+        component:lookBar
     },{
-        path:'/localtion'
+        path:'/',
+        component:homepage
     }
     ]
 })

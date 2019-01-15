@@ -1,23 +1,25 @@
 <template>
-    <div id="app">
-        <homeheader></homeheader>
-        <homeswiper></homeswiper>
-        <homeicon></homeicon>
+    <div id="home">
+        <home-header></home-header>
+        <home-swiper></home-swiper>
+        <home-icon></home-icon>
+        <home-list-bottom></home-list-bottom>
     </div>
 </template>
 <script>
-import homeheader from './components/header.vue'
-import homeswiper from './components/swiper.vue'
-import homeicon from './components/icon.vue'
+import homeHeader from './components/header.vue'
+import homeSwiper from './components/swiper.vue'
+import homeIcon from './components/icon.vue'
+import homeListBottom from './components/map-list-bottom.vue'
+
 export default {
     name : "homepage",
     components: {
-        homeheader,
-        homeswiper,
-        homeicon
+        homeHeader,
+        homeSwiper,
+        homeIcon,
+        homeListBottom
 
     }
 }
 </script>
-<style>
-</style>

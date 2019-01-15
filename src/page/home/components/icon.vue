@@ -79,11 +79,12 @@ export default {
 
 <style lang="stylus" scoped>
     .icon-wrap
-        margin-top .2rem
+        padding-top .2rem
         font-size 0
         width 100%
         padding-bottom 50%
         height 0
+        background #ffffff
         .icon
             background #fff
             position relative

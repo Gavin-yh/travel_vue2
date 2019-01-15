@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <homepage></homepage>
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -12,5 +12,7 @@ export default {
     }
 }
 </script>
-<style>
+<style lang="stylus" scoped>
+    #app
+        background #f5f5f5
 </style>
