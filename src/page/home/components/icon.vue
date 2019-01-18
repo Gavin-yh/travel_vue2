@@ -114,5 +114,7 @@ export default {
                 width 100%
                 text-align center
                 p
+                    width: 1.3rem
+                    text-align: center
                     ellipsis()
 </style>
