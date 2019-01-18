@@ -21,6 +21,9 @@
                 </div>
             </li>
         </ul>
+        <div class="recom-more">
+            <a href="#" class="iconfont">查看更多&#xe63f;</a>
+        </div>
     </div>
 </template>
 
@@ -99,9 +102,8 @@ export default {
                 font-size: .3rem
                 color: #212121
         .recom-content
-            
             display: flex
-            margin: .1rem 0 0 .3rem 
+            padding: .1rem 0 .2rem .3rem 
             border-bottom: 1px solid #eee
             .content-img
                 width: 2rem
@@ -131,5 +133,13 @@ export default {
                         text-align: right
                         padding-right: .2rem
                         ellipsis()
+        .recom-more
+            height: .6rem
+            a
+                display: block
+                text-align:center
+                font-size: .28rem
+                height: .6rem
+                line-height: .6rem
 
 </style>

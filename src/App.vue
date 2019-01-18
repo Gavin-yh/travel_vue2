@@ -14,6 +14,5 @@ export default {
 </script>
 <style lang="stylus" scoped>
     #app
-        background #f5f5f5
-        overflow-x hidden
+        background: #eee
 </style>

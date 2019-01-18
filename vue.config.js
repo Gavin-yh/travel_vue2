@@ -1,11 +1,11 @@
 // const path = require('path');
-// function resolve (dir) {
-//     return path.join(__dirname, dir)
-// }
+
 // module.exports = {
-//     lintOnSave: true,
-//     chainWebpack: (config)=>{
-//         config.resolve.alias
-//             .set('styl', resolve('./src/assets/styles/mixin.styl'))
+//     configureWebpack:{
+//         resolve :{
+//             alias :{
+//                 'styl':path.resolve(__dirname,'./src/assets/')
+//             }
+//         }
 //     }
 // }
