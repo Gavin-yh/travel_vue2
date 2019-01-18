@@ -15,4 +15,5 @@ export default {
 <style lang="stylus" scoped>
     #app
         background #f5f5f5
+        overflow-x hidden
 </style>

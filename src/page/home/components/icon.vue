@@ -78,6 +78,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+     @import '../../../assets/styles/mixin.styl'
     .icon-wrap
         padding-top .2rem
         font-size 0
@@ -113,7 +114,5 @@ export default {
                 width 100%
                 text-align center
                 p
-                    overflow hidden 
-                    white-space nowrap 
-                    text-overflow ellipsis
+                    ellipsis()
 </style>

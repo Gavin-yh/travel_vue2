@@ -62,6 +62,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+    @import '../../../assets/styles/mixin.styl'
    .weekend-hot
       width 100%
       height 0
@@ -102,7 +103,5 @@ export default {
                   height .7rem
                   line-height .7rem
                   text-align center
-                  text-overflow ellipsis 
-                  overflow hidden 
-                  white-space nowrap
+                  ellipsis()
 </style>
