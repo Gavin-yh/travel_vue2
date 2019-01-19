@@ -17,45 +17,9 @@
 <script>
 export default {
     name :'icons',
+    props:["icons"],
     data(){
         return {
-            iconUrl:[{
-                id :"01",
-                url:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-                text:"景点门票"
-            },{
-                id:"02",
-                url:"http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-                text:"一日游"
-            },{
-                id:"03",
-                url:"http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-                text:"必游景点"
-            },{
-                id:"04",
-                url:"http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
-                text:"动植物园"
-            },{
-                id:"05",
-                url:"http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png",
-                text:"城市观光"
-            },{
-                id:"06",
-                url:"http://img1.qunarzz.com/piao/fusion/1803/b6/37560ece9c62b502.png",
-                text:"泡温泉"
-            },{
-                id:"07",
-                url:"http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
-                text:"野生动物园"
-            },{
-                id:"08",
-                url:"http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
-                text:"野生动物园"
-            },{
-                id:"09",
-                url:"http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
-                text:"野生动物园"
-            }],
             swiperOption:{
                 pagination:".swiper-pagination",
             }
@@ -64,7 +28,7 @@ export default {
     computed:{
         pages(){
             let pages = []
-            this.iconUrl.forEach((item ,index) => {
+            this.icons.forEach((item ,index) => {
                 const page = Math.floor(index/8)
                 if(!pages[page]){
                     pages[page] = []
@@ -115,6 +79,7 @@ export default {
                 text-align center
                 p
                     width: 1.3rem
+                    margin: 0 auto
                     text-align: center
                     ellipsis()
 </style>

@@ -4,15 +4,13 @@
     </div>
 </template>
 <script>
-import homepage from './page/home/home.vue'
+
 export default {
     name :"app",
-    components: {
-        homepage
-    }
 }
 </script>
 <style lang="stylus" scoped>
     #app
+        overflow-x: hidden
         background: #eee
 </style>

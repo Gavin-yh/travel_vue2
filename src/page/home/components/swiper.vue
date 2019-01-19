@@ -14,23 +14,16 @@
 <script>
 export default {
     name : "homeswiper",
+    props:["swiperdata"],
     data(){
         return {
             swiperOption : {
                 pagination:".swiper-pagination",
                 loop:true,
-                autoplay: 3000,
+                autoplay: 2000,
                 speed: 1000,
 
-            },
-            swiperdata:[{
-                id : "01",
-                imgUrl:"http://img1.qunarzz.com/piao/fusion/1812/d6/daa880b254940402.jpg_750x200_b114308a.jpg",
-            },{
-                id : "02",
-                imgUrl :"http://img1.qunarzz.com/piao/fusion/1811/31/da037478f37cf202.jpg_750x200_fe28d396.jpg",
             }
-            ]
         }
     }
 }

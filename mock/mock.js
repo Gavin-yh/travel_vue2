@@ -1,7 +1,7 @@
 import mock from 'mockjs'
-import data from '../data/data.json'
+import data from '../public/data/data.json'
 
-mock.mock('/user/info', {
+mock.mock('/home/data', {
     code: 0,
     codemsg: true,
     data: data
