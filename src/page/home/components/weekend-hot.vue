@@ -26,7 +26,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-    @import '../../../assets/styles/mixin.styl'
+    @import '~style/mixin.styl'
    .weekend-hot
       width 100%
       height 0

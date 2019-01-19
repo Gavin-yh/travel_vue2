@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    @import '../../../assets/styles/mixin.styl'
+    @import '~style/mixin.styl'
     .recom-wrap
         margin-top: .2rem
         background: #fff

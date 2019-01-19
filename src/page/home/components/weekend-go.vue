@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    @import '../../../assets/styles/mixin.styl'
+    @import "~style/mixin.styl"
     .we-go-wrap
         width: 100%
         .wrap-title

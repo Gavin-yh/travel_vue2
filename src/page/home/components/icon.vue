@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-     @import '../../../assets/styles/mixin.styl'
+     @import '~style/mixin.styl'
     .icon-wrap
         padding-top .2rem
         font-size 0
