@@ -3,16 +3,26 @@ import vue from 'vue'
 
 vue.use(router)
 
-import lookBar from '../src/page/lookBar/lookBar.vue'
-import homepage from '../src/page/home/home.vue'
+import hotAllBar from '@/page/AllBar/hotAllBar.vue'
+import homepage from '@/page/home/home.vue'
+
+import city from '@/page/city/city.vue'
 export default new router({
     mode :"history",
     routes:[{
-        path:'/look-bar',
-        component:lookBar
+        path: '/hot-All-bar',
+        component: hotAllBar
     },{
-        path:'/',
-        component:homepage
-    }
-    ]
+        path: '/',
+        name: 'home',//具名路由
+        component: homepage
+    },{
+        path: '/city',
+        name: 'city',
+        component: city
+
+    },{
+        path: '*',
+        component: homepage
+    }]
 })

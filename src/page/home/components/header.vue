@@ -1,6 +1,8 @@
 <template>
     <div class="header">
-        <router-link to = "/back" class = "back iconfont">&#xe64a;</router-link>
+        <a href = "/" class = "back-btn">
+            <i class="back iconfont">&#xe64a;</i>
+        </a>
         <div class = "map">
             <a  href = "#" class = "map-link">
                 <i class = " select iconfont">&#xe650;</i>
@@ -8,8 +10,8 @@
             </a>
         </div>
         <div class = "localtion">
-            <router-link to = "/localtion" href="#">
-                <span>北京</span>
+            <router-link class="local-link" to = "/city" href="#">
+                <span class="localtion-title">北京</span>
                 <i class="localtion-icon iconfont">&#xe625;</i>
             </router-link>
         </div>
@@ -24,19 +26,23 @@ export default {
 }
 </script>
 <style scoped lang="stylus">
+    @import '~style/mixin.styl'
     .header
         height .84rem
         width 100%
         background-color #00BCD4
         display flex
         line-height .8rem
-        .back
+        .back-btn
             display line-block
             color #ffffff
-            font-size .7rem
             width 0.8rem
             heigth .84rem
-            line-height .84rem
+            line-height .9rem
+            text-align center
+            .back
+                font-size .6rem
+
         .map
             position relative
             height .6rem
@@ -70,12 +76,22 @@ export default {
                     text-overflow ellipsis
         .localtion
             width 1.3rem
-            a
+            .local-link
                 color #fff
-                padding 0 .2rem
+                display block
+                width 100%
+                height .8rem
+                line-height .8rem
+                padding-left .2rem
+                box-sizing border-box
                 .localtion-icon
                     font-size .5rem
-                    vertical-align middle
+                    vertical-align top
+                .localtion-title
+                    display inline-block
+                    width .56rem
+                    height 100%
+                    ellipsis()
         
 
 </style>

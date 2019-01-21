@@ -3,7 +3,7 @@
       <div class="hot-title">
          <img class = "title-img" src = "http://img1.qunarzz.com/piao/fusion/1711/16/bfbb9874e8f11402.png"/>
          <span class="title">本周热门榜单</span>
-         <router-link class="title-link" to = "/look-bar">
+         <router-link class="title-link" to = "/hot-all-bar">
             <span>全部榜单</span>
             <i class="iconfont">&#xe632;</i>
          </router-link>
@@ -35,7 +35,8 @@ export default {
       background #ffffff
       .hot-title
          position relative
-         padding .4rem 0
+         height .9rem
+         line-height .9rem
          .title-img
             width .3rem
             height .3rem
@@ -45,10 +46,13 @@ export default {
             color #212121
             font-size .3rem
          .title-link
-            color #000
-            position absolute 
-            top .4rem
-            right 0
+            color: #000;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            height: .9rem;
+            line-height: .9rem;
       .hot-info
          width 100%
          height 40%;
