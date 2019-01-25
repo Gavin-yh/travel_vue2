@@ -14,81 +14,16 @@
                     热门城市
                 </div>
                 <ul class="wrap">
-                    <li class="wrap-item">北京</li>
-                    <li class="wrap-item">上海</li>
-                    <li class="wrap-item">天津</li>
-                    <li class="wrap-item">福建</li>  
-                    <li class="wrap-item">北京</li>
-                    <li class="wrap-item">上海</li>
-                    <li class="wrap-item">天津</li>
-                    <li class="wrap-item">福建</li>  
+                    <li class="wrap-item" v-for = "item of hotcity" :key = "item.id">{{item.name}}</li>
                 </ul>
             </div>
             <div class="area">
-                <div>
+                <div :ref = "key"  v-for="(val,key) of cities" :key = "key">
                     <div class="title border-topbottom">
-                        A
+                        {{key}}
                     </div>
                     <ul class="grapheme">
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="title border-topbottom">
-                        A
-                    </div>
-                    <ul class="grapheme">
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="title border-topbottom">
-                        A
-                    </div>
-                    <ul class="grapheme">
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="title border-topbottom">
-                        A
-                    </div>
-                    <ul class="grapheme">
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="title border-topbottom">
-                        A
-                    </div>
-                    <ul class="grapheme">
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="title border-topbottom">
-                        A
-                    </div>
-                    <ul class="grapheme">
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
-                        <li class = "grap-item border-bottom">阿拉尔</li>
+                        <li  v-for = "res of val" :key = "res.id" class = "grap-item border-bottom">{{res.name}}</li>
                     </ul>
                 </div>
             </div>
@@ -100,8 +35,19 @@
 import Bscroll from "better-scroll"
 export default {
    name: "city-list",
+   props:{
+       hotcity : Array,
+       cities : Object,
+       graph : String
+   },
    mounted(){
        this.scroll = new Bscroll(this.$refs.wrapper)
+   },
+   watch: {
+       graph(){
+           const el = this.$refs[this.graph][0]
+           this.scroll.scrollToElement(el)
+       }
    }
 }
 </script>

@@ -56,7 +56,7 @@ export default {
                 }
             })
         // webpack 中的代理proxy  + axios
-        // axios.get('/api/data.json')
+        // axios.get('/city/data')
         //     .then(res => {
         //         console.log(res)
         //     },fa => {
