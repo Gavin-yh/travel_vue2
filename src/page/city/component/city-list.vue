@@ -6,7 +6,7 @@
                     当前城市
                     </div>
                 <ul class="wrap">
-                    <li class="wrap-item">北京</li>
+                    <li class="wrap-item">{{stateCity}}</li>
                 </ul>
             </div>
             <div class="area">
@@ -14,7 +14,14 @@
                     热门城市
                 </div>
                 <ul class="wrap">
-                    <li class="wrap-item" v-for = "item of hotcity" :key = "item.id">{{item.name}}</li>
+                    <li 
+                        class="wrap-item" 
+                        v-for = "item of hotcity" 
+                        :key = "item.id"
+                        @click = changeHotCity(item.name)
+                    >
+                        {{item.name}}
+                    </li>
                 </ul>
             </div>
             <div class="area">
@@ -23,7 +30,7 @@
                         {{key}}
                     </div>
                     <ul class="grapheme">
-                        <li  v-for = "res of val" :key = "res.id" class = "grap-item border-bottom">{{res.name}}</li>
+                        <li @click = changeHotCity(res.name) v-for = "res of val" :key = "res.id" class = "grap-item border-bottom">{{res.name}}</li>
                     </ul>
                 </div>
             </div>
@@ -33,6 +40,8 @@
 
 <script>
 import Bscroll from "better-scroll"
+
+import { mapState , mapMutations } from 'vuex'
 export default {
    name: "city-list",
    props:{
@@ -40,15 +49,30 @@ export default {
        cities : Object,
        graph : String
    },
-   mounted(){
-       this.scroll = new Bscroll(this.$refs.wrapper)
+   methods : {
+       ...mapMutations ({
+           changeState : "changeState"
+       }),
+       changeHotCity (val){
+        //    this.$store.commit("changeState" , val)  利用辅助方法 减少操作
+           this.changeState(val)
+           this.$router.push({path:"/"})
+       }
+   },
+   computed : {
+       ...mapState({
+           stateCity : state => state.city
+       })
    },
    watch: {
-       graph(){
+       graph (){
            const el = this.$refs[this.graph][0]
            this.scroll.scrollToElement(el)
        }
-   }
+   },
+   mounted (){
+       this.scroll = new Bscroll(this.$refs.wrapper)
+   },
 }
 </script>
 
@@ -76,11 +100,12 @@ export default {
             padding .2rem .4rem .2rem .4rem
             .wrap-item
                 float left
-                width 1.1rem
+                min-width .8rem
                 line-height .5rem
                 text-align center
                 border .02rem solid #666
                 margin .1rem
+                padding 0 .1rem
         .grapheme
             background #ffffff
         .border-bottom

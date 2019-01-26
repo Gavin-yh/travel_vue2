@@ -11,18 +11,22 @@
         </div>
         <div class = "localtion">
             <router-link class="local-link" to = "/city" href="#">
-                <span class="localtion-title">北京</span>
+                <span class="localtion-title">{{stateCity}}</span>
                 <i class="localtion-icon iconfont">&#xe625;</i>
             </router-link>
         </div>
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
+
 export default {
     name :"headerpage",
-    components:{
-
-    }
+    computed : {
+        ...mapState({
+            stateCity : state => state.city
+        })
+    } 
 }
 </script>
 <style scoped lang="stylus">
@@ -71,11 +75,8 @@ export default {
                     width 3.6rem
                     height .6rem
                     line-height .6rem
-                    overflow hidden
-                    white-space nowrap
-                    text-overflow ellipsis
+                    ellipsis()
         .localtion
-            width 1.3rem
             .local-link
                 color #fff
                 display block
@@ -89,7 +90,8 @@ export default {
                     vertical-align top
                 .localtion-title
                     display inline-block
-                    width .56rem
+                    min-width .6rem
+                    max-width 1.9rem
                     height 100%
                     ellipsis()
         

@@ -11,7 +11,7 @@
         </div>
         <div  class="search-list-content"  ref = "s-l-c" v-show="Status">
             <ul>
-                <li class="search-list-item border-bottom" v-for="(item,key) of list" :key = key>{{item.name}}</li>
+                <li class="search-list-item border-bottom" @click = changeHotCity(item.name) v-for="(item,key) of list" :key = key>{{item.name}}</li>
                 <li class="search-list-item border-bottom" v-show="noData">没有相应的数据...</li>
             </ul>
         </div>
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
+import Bscroll from "better-scroll"
+import { mapMutations } from "vuex"
 
 export default {
     name : "cityheader",
@@ -33,6 +34,15 @@ export default {
     },
     props : {
         cities : Object
+    },
+    methods : {
+        ...mapMutations({
+            changeState : "changeState"
+        }),
+        changeHotCity(val){
+            this.changeState(val)
+            this.$router.push({path : "/"})
+        }
     },
     computed : {
         noData (){
@@ -66,7 +76,7 @@ export default {
         }
     },
     mounted (){
-        this.scroll = new Bscroll(this.$refs["s-l-c"])
+        this.scroll = new Bscroll(this.$refs["s-l-c"]) //创建better-scroll的实例 参数用$refs获取的dom 元素
     }
 }
 </script>

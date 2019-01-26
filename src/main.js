@@ -3,6 +3,7 @@ import App from './App.vue'
 import fastclick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import router from '../router/router.js'
+import store from '../state/index.js'
 import '../src/assets/styles/reset.css'
 import './assets/styles/border.css'
 import './assets/styles/iconfont.css'
@@ -18,5 +19,6 @@ Vue.config.productionTip = false
 
 new Vue({
     router,
+    store,
     render: h => h(App),
 }).$mount('#app')
