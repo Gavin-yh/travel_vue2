@@ -7,15 +7,67 @@
             <h1 class="title">城市选择</h1>
         </div>
         <div class="header-search">
-            <input type = "text" placeholder = "请输入城市名或拼音"/>
+            <input v-model="keyword" type = "text" placeholder = "请输入城市名或拼音"/>
+        </div>
+        <div  class="search-list-content"  ref = "s-l-c" v-show="Status">
+            <ul>
+                <li class="search-list-item border-bottom" v-for="(item,key) of list" :key = key>{{item.name}}</li>
+                <li class="search-list-item border-bottom" v-show="noData">没有相应的数据...</li>
+            </ul>
         </div>
     </div>
 </template>
 
 <script>
+import Bscroll from 'better-scroll'
 
 export default {
     name : "cityheader",
+    data (){
+        return {
+            keyword : '',
+            time : null,
+            list : [],
+            Status : false, //search-list-content
+        }
+    },
+    props : {
+        cities : Object
+    },
+    computed : {
+        noData (){
+            return !this.list.length
+        }
+        //  noData 控制没有数据时 no-data 的显隐
+    },
+    watch : {
+        keyword (){
+            if(this.time){
+                clearTimeout(this.time)
+            }
+            if(!this.keyword){
+                this.list = []
+                this.Status = false //当没值时 列表隐藏
+                return
+            }else{
+                const result = []
+                this.Status = true //当输入框 有值时 列表显示
+                this.time = setTimeout(() => {
+                    for (let i in this.cities){
+                        this.cities[i].forEach(el => {
+                        if(el.name.indexOf(this.keyword) != -1 || el.spell.indexOf(this.keyword) != -1){
+                            result.push(el)  //有个误区  直接用this.list来push，造成this.list里面一直有上次输入的，没清空，用result ，每次改变时 都是一个新的数组
+                        }
+                        });
+                    }
+                }, 200);
+                this.list = result
+            }
+        }
+    },
+    mounted (){
+        this.scroll = new Bscroll(this.$refs["s-l-c"])
+    }
 }
 </script>
 
@@ -56,4 +108,18 @@ export default {
                 padding 0 .1rem
                 color #666
                 border-radius .1rem
+        .search-list-content
+            position absolute 
+            top 1.64rem
+            left 0 
+            bottom 0
+            right 0
+            z-index 1
+            background #eee
+            overflow hidden
+            .search-list-item
+                background #ffffff
+                line-height .7rem
+                padding-left .2rem
+
 </style>

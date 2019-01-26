@@ -1,8 +1,8 @@
 <template>
     <div>
-        <city-header></city-header>
-        <city-list :graph = "graph" :hotcity = hotcity :cities = cities></city-list>
-        <city-graph @export = "childVal" :cities = cities></city-graph>
+        <city-header :cities = "cities"></city-header>
+        <city-list :graph = "graph" :hotcity = "hotcity" :cities = "cities"></city-list>
+        <city-graph @export = "childVal" :cities = "cities"></city-graph>
     </div>
 </template>
 
