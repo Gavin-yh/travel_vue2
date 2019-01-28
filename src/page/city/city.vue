@@ -27,6 +27,16 @@ export default {
             if(val){
                this.graph = val 
             }
+        },
+        getInfo (){
+        axios.get('/api/city.json')
+            .then(res => {
+                if(res.statusText == "OK"){
+                    let data = res.data
+                    this.cities = data.cities
+                    this.hotcity = data.hotcity
+                }
+            })
         }
     },
     components: {
@@ -34,16 +44,16 @@ export default {
         cityList,
         cityGraph
     },
-    created(){
-        axios.get('/city/data')
-            .then(res => {
-                if(res.data.codemsg){
-                    // console.log(res)
-                    let data = res.data.data
-                    this.cities = data.cities
-                    this.hotcity = data.hotcity
-                }
-            })
+    mounted (){
+        // axios.get('/city/data')
+        //     .then(res => {
+        //         if(res.data.codemsg){
+        //             let data = res.data.data
+        //             this.cities = data.cities
+        //             this.hotcity = data.hotcity
+        //         }
+        //     })
+        this.getInfo()
     }
 }
 </script>
