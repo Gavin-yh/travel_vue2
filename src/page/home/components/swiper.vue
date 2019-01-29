@@ -22,6 +22,7 @@ export default {
                 loop:true,
                 autoplay: 2000,
                 speed: 1000,
+                initialSlide :0
 
             }
         }

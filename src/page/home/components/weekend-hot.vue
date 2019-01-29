@@ -10,10 +10,16 @@
       </div>
       <div class="hot-info">
          <ul class="info-wrap">
-            <li class="info-wrap-item" v-for = "item of weekendHot" :key = "item.id">
+            <router-link 
+               tag = "li"
+               class="info-wrap-item"
+               v-for = "item of weekendHot" 
+               :key = "item.id"
+               :to = "'/detail/' + item.id"
+            >
                <img class="info-wrap-item-img" :src="item.url"/>
                <p class="dec">{{item.text}}</p>
-            </li>
+            </router-link>
          </ul>
       </div>
    </div> 

@@ -6,7 +6,7 @@
         </div>
         <ul>
             <li  class="recom-content" v-for = "item of recomment" :key = "item.id">
-                <a href="" class="re-content-wrap">
+                <router-link :to="'/detail/' + item.id" class="re-content-wrap">
                     <div class="content-img">
                         <img :src = "item.url"/>
                     </div>
@@ -20,7 +20,7 @@
                             <p class="info-der">{{item.local}}</p>
                         </div>
                     </div>
-                </a>
+                </router-link>
             </li>
         </ul>
         <div class="recom-more">

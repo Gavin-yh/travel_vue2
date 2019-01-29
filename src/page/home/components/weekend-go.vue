@@ -2,8 +2,8 @@
     <div class="we-go-wrap">
         <h2 class="wrap-title">周末去哪</h2>
         <ul class="wrap">
-            <li class="wrap-item" v-for = "item of weekendGo" :key = "item.id">
-                <a href="" class="wrap-content">
+            <li class="wrap-item"  v-for = "item of weekendGo"  :key = "item.id">
+                <a href = "" class="wrap-content">
                     <div class="wrap-img">
                         <img :src = "item.url"/>
                     </div>
