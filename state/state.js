@@ -8,5 +8,6 @@ try{
 }catch (e){}
 
 export default  {
-    city : Default
+    city: Default,
+    viewName:""
 }

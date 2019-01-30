@@ -5,8 +5,16 @@
             <span class="title">猜你喜欢</span>
         </div>
         <ul>
-            <li  class="recom-content" v-for = "item of recomment" :key = "item.id">
-                <router-link :to="'/detail/' + item.id" class="re-content-wrap">
+            <li  
+                class="recom-content" 
+                v-for = "item of recomment" 
+                :key = "item.id"
+                @click="$store.commit('changeViewName',item.name)"
+            >
+                <router-link 
+                    :to="'/detail/' + item.name" 
+                    class="re-content-wrap"
+                >
                     <div class="content-img">
                         <img :src = "item.url"/>
                     </div>

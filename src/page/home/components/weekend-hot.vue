@@ -15,8 +15,12 @@
                class="info-wrap-item"
                v-for = "item of weekendHot" 
                :key = "item.id"
-               :to = "'/detail/' + item.id"
+               :to = "'/detail/' + item.name"
+               @click.native="changeVname(item.name)"
             >
+            <!-- getViewName  用来获取 相应景区的名字，
+            从而去改变 vuex里面的 ViewName 这个状态 
+            供详情页里的相册组件和取的相应的数据 -->
                <img class="info-wrap-item-img" :src="item.url"/>
                <p class="dec">{{item.text}}</p>
             </router-link>
@@ -26,9 +30,19 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
    name :"weekend-h",
-   props:["weekendHot"]
+   props:["weekendHot"],
+   methods:{
+      changeVname (name){
+         this.changeViewName(name)
+      },
+      ...mapMutations({
+         changeViewName : "changeViewName"
+      })
+   }
 }
 </script>
 <style lang="stylus" scoped>
