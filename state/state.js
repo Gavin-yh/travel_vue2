@@ -9,5 +9,9 @@ try{
 
 export default  {
     city: Default,
-    viewName:""
+    viewName:"",
+    imgUrl:[],
+    imgLength:0,
+    imgName:"",
+    firstImg:""
 }

@@ -5,19 +5,21 @@
             <div class="head-info">
                 <div class="info-icon">
                     <span class="iconfont">&#xe653;</span>
-                    {{imgNum}}
+                    {{imgLength}}
                 </div>
                 <div class="info-title">{{imgName}}(AAAAA景区) </div>
             </div> 
         </div>
         <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
-       <img-bar :imgUrl = "imgUrl" @hidden = "hidden" v-if="state"></img-bar> 
+       <!-- <keep-alive> -->
+            <img-bar  @hidden = "hidden" v-if="state"></img-bar> 
+       <!-- </keep-alive> -->
     </div>
 </template>
 
 <script>
-import axios from "axios"
-import { mapState } from "vuex"
+
+import { mapState, mapMutations } from "vuex"
 
 import imgBar from 'pubCom/imgBar/imgBar'
 export default {
@@ -25,11 +27,11 @@ export default {
     data (){
         return {
             //控制img-bar 的显示和隐藏
-            firstImg : '',
             state: false,
-            imgUrl : '',
-            imgNum : 0 ,
-            imgName : ''
+            // imgName:'',
+            // imgLength:0,
+            // firstImg:''
+
         }
     },
     methods: {
@@ -38,34 +40,30 @@ export default {
         },
         hidden (){
             this.state = false
-        }
+        },
+        ...mapMutations({
+            con:'con'
+        })
         
     },
     computed: {
         ...mapState({
-            viewName: state => state.viewName
+            viewName: state => state.viewName,
+            imgLength: state => state.imgLength,
+            imgName: state => state.imgName,
+            firstImg: state => state.firstImg
         })
     },
     components:{
         imgBar
     },
-    activated (){
-        //请求相应图片 传递给imgBar 由imgBar做一定的展示，以及再传递給画廊 gallary进行数据的渲染
-        axios.get ('/api/gallary.json')
-            .then (res => {
-                if (res.status === 200){
-                    res.data.data.forEach(ele => {
-                       if(ele.name == this.viewName){
-                            this.imgUrl = ele.url
-                            this.imgNum = this.imgUrl.length
-                            this.imgName = ele.name
-                            this.firstImg = this.imgUrl[0]
-                       }
-                    });
-
-                }
-            })
+    mounted (){
+        this.con()
+        // this.imgName = localStorage.imgName
+        // this.imgLength = localStorage.imgLength
+        // this.firstImg = localStorage.firstImg
     }
+    
 }
 </script>
 

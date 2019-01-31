@@ -12,10 +12,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
     name: "gallary",
     props: {
-        url : Array,
+        // url : Array,
         index : Number
     },
     data () {
@@ -23,17 +24,25 @@ export default {
             swiperOption: {
                 pagination : ".swiper-pagination",
                 paginationType : "fraction",
-                loop: true,
+                // loop: true,
                 // observeParents: true,
                 // observer: true,
                 initialSlide: this.index
             }
         }
     },
+    computed:{
+        ...mapState({
+            url: state => state.imgUrl
+        })
+    },
     methods: {
         changestate (){
             this.$emit("changeImgShow")
         }
+    },
+    mounted(){
+        console.log(this.url)
     }
 }
 </script>

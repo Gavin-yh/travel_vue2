@@ -11,8 +11,8 @@
                 :key = "item.id"
                 @click="$store.commit('changeViewName',item.name)"
             >
-                <router-link 
-                    :to="'/detail/' + item.name" 
+                <a 
+                    :href="'/detail/' + item.name" 
                     class="re-content-wrap"
                 >
                     <div class="content-img">
@@ -28,7 +28,7 @@
                             <p class="info-der">{{item.local}}</p>
                         </div>
                     </div>
-                </router-link>
+                </a>
             </li>
         </ul>
         <div class="recom-more">

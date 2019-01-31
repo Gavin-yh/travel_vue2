@@ -12,20 +12,26 @@
                 </li>
             </ul>
         </div>
-        <gallary :index = "index" @changeImgShow = "changeImgShow" :url = "imgUrl" v-if = "showImg"></gallary>
+        <gallary :index = "index" @changeImgShow = "changeImgShow" v-if = "showImg"></gallary>
     </div>
 </template>
 
 <script>
+import { mapState } from "vuex"
+
 import gallary from "../gallary/gallary"
 export default {
     name: "imgBar",
     props: {
         paramsId: Number,
-        imgUrl: Array
     },
     components: {
         gallary
+    },
+    computed:{
+        ...mapState({
+            imgUrl: state => state.imgUrl
+        })
     },
     data (){
         return {
