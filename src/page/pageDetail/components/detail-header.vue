@@ -5,9 +5,9 @@
             <div class="head-info">
                 <div class="info-icon">
                     <span class="iconfont">&#xe653;</span>
-                    8
+                    {{imgNum}}
                 </div>
-                <div class="info-title">故宫(AAAAA景区) </div>
+                <div class="info-title">{{imgName}}(AAAAA景区) </div>
             </div> 
         </div>
         <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
@@ -27,7 +27,9 @@ export default {
             //控制img-bar 的显示和隐藏
             firstImg : '',
             state: false,
-            imgUrl : ''
+            imgUrl : '',
+            imgNum : 0 ,
+            imgName : ''
         }
     },
     methods: {
@@ -55,6 +57,8 @@ export default {
                     res.data.data.forEach(ele => {
                        if(ele.name == this.viewName){
                             this.imgUrl = ele.url
+                            this.imgNum = this.imgUrl.length
+                            this.imgName = ele.name
                             this.firstImg = this.imgUrl[0]
                        }
                     });
