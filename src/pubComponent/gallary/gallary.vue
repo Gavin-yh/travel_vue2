@@ -40,9 +40,6 @@ export default {
         changestate (){
             this.$emit("changeImgShow")
         }
-    },
-    mounted(){
-        console.log(this.url)
     }
 }
 </script>

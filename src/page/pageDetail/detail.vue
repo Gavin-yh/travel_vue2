@@ -1,6 +1,6 @@
 <template>
     <div>
-            <detail-header></detail-header>
+        <detail-header></detail-header>
     </div>
 </template>
 
@@ -32,9 +32,11 @@ export default {
                         // 使用localStorage 得结合 weekend-hot 导航 a ,若这里用<router-link>  页面起不到刷新的效果，则用户主动刷新页面是时
                         //由于 this.viewName 为空 则数据请求发送不了，页面空白
                        if(ele.name == (this.viewName || localStorage.viewName)){
-                           console.log('ssss')
-                           console.log(res)
-                           this.$store.commit('saveDetailData', ele.url, ele.name)
+                        //    console.log('ssss', ele.name)
+                        //    console.log(ele.url)
+                        //    console.log(ele)
+                           this.$store.commit('saveDetailData', {url:ele.url, name:ele.name})
+                        //传递多个参数,用对象的形式来传递
                        }
                     });
 

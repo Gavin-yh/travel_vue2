@@ -11,14 +11,15 @@ export default {
         }catch(e){}
         state.viewName = name
     },
-    saveDetailData (state , url , imgName){
-        console.log('s')
-        state.imgUrl = url,
-        state.imgLength = url.length,
-        state.imgName = imgName,
-        state.firstImg = url[0]
-    },
-    con(state){
-        console.log(state.imgUrl)
+    saveDetailData (state , params){
+        console.log(params)
+        state.imgUrl = params.url,
+        state.imgLength = params.url.length,
+        state.imgName = params.name,
+        state.firstImg = params.url[0]
     }
+    // ,测试用的 查看imgUrl有没有被存入
+    // con(state){
+    //     console.log(state.imgUrl)
+    // }
 }
