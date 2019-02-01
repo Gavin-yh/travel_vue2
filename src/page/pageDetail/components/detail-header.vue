@@ -68,6 +68,7 @@ export default {
             }else{
                 this.showHeader = false
             }
+            console.log('s')
         }
         
     },
@@ -82,9 +83,13 @@ export default {
     components:{
         imgBar
     },
-    mounted (){
+    activated (){
         window.addEventListener('scroll', this.getTop)
     },
+    deactivated (){
+        console.log('de')
+        window.removeEventListener('scroll',this.getTop)
+    }
     
 }
 </script>
