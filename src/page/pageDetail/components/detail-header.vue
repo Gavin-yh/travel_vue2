@@ -20,18 +20,23 @@
         <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
        <!-- <keep-alive> -->
         <img-bar  @hidden = "hidden" v-if="state"></img-bar>
-        <div class="foot"></div>
        <!-- </keep-alive> -->
+       <detail-recom v-show="!state" :recom = "recom"></detail-recom>
     </div>
 </template>
 
 <script>
 
 import { mapState, mapMutations } from "vuex"
+import detailRecom from './detail-recommend.vue'
 
 import imgBar from 'pubCom/imgBar/imgBar'
 export default {
     name: "detailHead",
+    components: {
+        detailRecom,
+        imgBar
+    },
     data (){
         return {
             //控制img-bar 的显示和隐藏
@@ -73,14 +78,13 @@ export default {
     },
     computed: {
         ...mapState({
-            viewName: state => state.viewName,
+            viewName: state => state.viewName,//景点名字
             imgLength: state => state.imgLength,
             imgName: state => state.imgName,
-            firstImg: state => state.firstImg
+            firstImg: state => state.firstImg,
+
+            recom: state => state.recom
         })
-    },
-    components:{
-        imgBar
     },
     activated (){
         window.addEventListener('scroll', this.getTop)
@@ -145,10 +149,8 @@ export default {
             line-height .8rem
             text-align center
             background #000
-            opacity .5
+            opacity .8
             font-size .6rem
             border-radius 50%
-    .foot
-        height 100rem
         
 </style>

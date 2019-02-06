@@ -33,8 +33,12 @@ export default {
             line-height: .8rem
             color: #212121
             padding-left: .26rem
+            background #eeeeee
         .wrap
-            background: #eee
+            background: #ffffff
+            height 0
+            padding-bottom 70%
+            overflow hidden
             .wrap-item
                 margin-bottom: .1rem
                 .wrap-content

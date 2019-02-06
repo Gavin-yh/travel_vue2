@@ -17,6 +17,8 @@ export default {
         state.imgLength = params.url.length,
         state.imgName = params.name,
         state.firstImg = params.url[0]
+
+        state.recom = params.recom
     }
     // ,测试用的 查看imgUrl有没有被存入
     // con(state){

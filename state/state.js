@@ -13,5 +13,7 @@ export default  {
     imgUrl:[],
     imgLength:0,
     imgName:"",
-    firstImg:""
+    firstImg:"",
+
+    recom:null//详情页中的数据（detail-recommend)
 }

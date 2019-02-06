@@ -25,7 +25,7 @@
                 </ul>
             </div>
             <div class="area">
-                <div :ref = "key"  v-for="(val,key) of cities" :key = "key">
+                <div :ref = "key"  v-for= "(val,key) of cities" :key = "key">
                     <div class="title border-topbottom">
                         {{key}}
                     </div>

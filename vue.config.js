@@ -3,6 +3,7 @@ const resolve = dir => path.join(__dirname,dir)
 
 
 module.exports = {
+    baseUrl:"./",
     devServer:{
         host:"localhost",
         port:"8080",

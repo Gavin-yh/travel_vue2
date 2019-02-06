@@ -9,10 +9,11 @@ import { mapState } from 'vuex'
 import axios from "axios"
 
 import detailHeader from "./components/detail-header.vue"
+
 export default {
     name: "Detail",
     components: {
-       detailHeader 
+       detailHeader
     },
     computed: {
        ...mapState ({
@@ -35,7 +36,8 @@ export default {
                         //    console.log('ssss', ele.name)
                         //    console.log(ele.url)
                         //    console.log(ele)
-                           this.$store.commit('saveDetailData', {url:ele.url, name:ele.name})
+                        
+                           this.$store.commit('saveDetailData', {url:ele.url, name:ele.name,recom:ele.recom})
                         //传递多个参数,用对象的形式来传递
                        }
                     });
