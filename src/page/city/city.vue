@@ -29,7 +29,8 @@ export default {
             }
         },
         getInfo (){
-        axios.get('/api/city.json')
+        // axios.get('/api/city.json')
+        axios.get('http://xpian.aliveto.cn/city.json')
             .then(res => {
                 if(res.statusText == "OK"){
                     let data = res.data

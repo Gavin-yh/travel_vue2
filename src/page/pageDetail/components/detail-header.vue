@@ -90,6 +90,7 @@ export default {
         window.addEventListener('scroll', this.getTop)
     },
     deactivated (){
+        this.state = false//当切换出 detail-header时 将img-bar隐藏
         window.removeEventListener('scroll',this.getTop)
     }
     

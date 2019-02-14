@@ -10,19 +10,19 @@
       </div>
       <div class="hot-info">
          <ul class="info-wrap">
-            <a
+            <router-link
                class="info-wrap-item"
                v-for = "item of weekendHot" 
                :key = "item.id"
-               :href = "'/detail/' + item.name"
-               @click="changeVname(item.name)"
+               :to = "'/detail/' + item.name"
+               @click.native="changeVname(item.name)"
             >
             <!-- getViewName  用来获取 相应景区的名字，
             从而去改变 vuex里面的 ViewName 这个状态 
             供详情页里的相册组件和取的相应的数据 -->
                <img class="info-wrap-item-img" :src="item.url"/>
                <p class="dec">{{item.text}}</p>
-            </a>
+            </router-link>
          </ul>
       </div>
    </div> 
@@ -41,6 +41,9 @@ export default {
       ...mapMutations({
          changeViewName : "changeViewName"
       })
+   },
+   deactivated(){
+      location.reload()
    }
 }
 </script>

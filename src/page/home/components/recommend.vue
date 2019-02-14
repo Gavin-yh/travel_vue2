@@ -11,8 +11,8 @@
                 :key = "item.id"
                 @click="$store.commit('changeViewName',item.name)"
             >
-                <a 
-                    :href="'/detail/' + item.name" 
+                <router-link 
+                    :to ="'/detail/' + item.name" 
                     class="re-content-wrap"
                 >
                     <div class="content-img">
@@ -28,7 +28,7 @@
                             <p class="info-der">{{item.local}}</p>
                         </div>
                     </div>
-                </a>
+                </router-link>
             </li>
         </ul>
         <div class="recom-more">
@@ -40,7 +40,10 @@
 <script>
 export default {
     name:"recommend",
-    props:["recomment"]
+    props:["recomment"],
+    deactivated(){
+        location.reload()
+    }
 }
 </script>
 

@@ -3,16 +3,19 @@ const resolve = dir => path.join(__dirname,dir)
 
 
 module.exports = {
-    baseUrl:"./",
+    baseUrl: './', //后缀与即将访问的一样
+
+    //outputDir: 'vue',  //输出目录
     devServer:{
         host:"localhost",
         port:"8080",
         proxy:{
             "/api":{
-                target:"http://localhost:8080",
-                pathRewrite:{
-                    "^/api":"data"
-                }
+                target:"http://xpian.aliveto.cn",
+                // target:"http://localhost:8080",
+                // pathRewrite:{
+                //     "^/api":"/data/"
+                // }
             }
         }
     },

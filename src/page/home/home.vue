@@ -41,7 +41,8 @@ export default {
     },
     methods : {
         getInfo (){
-            axios.get('/api/home.json')
+            // axios.get('/api/home.json')
+        axios.get('http://xpian.aliveto.cn/home.json')
             .then(res => {
                     let Data = res.data
                     if(res.statusText == "OK"){

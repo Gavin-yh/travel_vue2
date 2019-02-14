@@ -36,9 +36,6 @@ export default {
             background #eeeeee
         .wrap
             background: #ffffff
-            height 0
-            padding-bottom 70%
-            overflow hidden
             .wrap-item
                 margin-bottom: .1rem
                 .wrap-content

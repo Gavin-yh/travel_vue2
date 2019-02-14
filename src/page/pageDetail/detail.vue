@@ -26,7 +26,8 @@ export default {
         //上面的解释，是针对于用父子组件来传值的方法
 
         //下面的方法则是用状态管理vuex加上localStorage 进行的数据在组件间的传递
-        axios.get ('/api/gallary.json')
+        // axios.get ('/api/gallary.json')
+        axios.get('http://xpian.aliveto.cn/gallary.json')
             .then (res => {
                 if (res.status === 200){
                     res.data.data.forEach(ele => {
@@ -35,7 +36,7 @@ export default {
                        if(ele.name == (this.viewName || localStorage.viewName)){
                         //    console.log('ssss', ele.name)
                         //    console.log(ele.url)
-                        //    console.log(ele)
+                           console.log(ele)
                         
                            this.$store.commit('saveDetailData', {url:ele.url, name:ele.name,recom:ele.recom})
                         //传递多个参数,用对象的形式来传递
@@ -44,7 +45,8 @@ export default {
 
                 }
             })
-    }
+    },
+    
 }
 </script>
 
