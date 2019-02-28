@@ -1,28 +1,28 @@
 <template>
-    <div>
-        <div @click = "changeS" class="head-wrap">
-            <div class="head-header" :style="myOpacity" v-show="showHeader">
-                <a href = "/" class = "back-btn">
-                    <i class="back iconfont">&#xe64a;</i>
-                </a>
-                <p class="header-title">{{imgName}}</p>
-            </div>
-            <img class="head-img" :src = "firstImg" />
-            <div class="head-info">
-                <div class="info-icon">
-                    <span class="iconfont">&#xe653;</span>
-                    {{imgLength}}
-                </div>
-                <div class="info-title">{{imgName}}(AAAAA景区) </div>
-            </div>
-            <router-link v-show="!showHeader" to = "/" class="iconfont head-icon">&#xe64a;</router-link>
+  <div>
+    <div @click="changeS" class="head-wrap">
+      <div class="head-header" :style="myOpacity" v-show="showHeader">
+        <router-link to="/" class="back-btn">
+          <i class="back iconfont">&#xe64a;</i>
+        </router-link>
+        <p class="header-title">{{imgName}}</p>
+      </div>
+      <img class="head-img" :src="firstImg">
+      <div class="head-info">
+        <div class="info-icon">
+          <span class="iconfont">&#xe653;</span>
+          {{imgLength}}
         </div>
-        <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
-       <!-- <keep-alive> -->
-        <img-bar  @hidden = "hidden" v-if="state"></img-bar>
-       <!-- </keep-alive> -->
-       <detail-recom v-show="!state" :recom = "recom"></detail-recom>
+        <div class="info-title">{{imgName}}(AAAAA景区)</div>
+      </div>
+      <router-link v-show="!showHeader" to="/" class="iconfont head-icon">&#xe64a;</router-link>
     </div>
+    <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
+    <!-- <keep-alive> -->
+    <img-bar @hidden="hidden" v-if="state"></img-bar>
+    <!-- </keep-alive> -->
+    <detail-recom v-show="!state" :recom="recom"></detail-recom>
+  </div>
 </template>
 
 <script>
@@ -33,6 +33,11 @@ import detailRecom from './detail-recommend.vue'
 import imgBar from 'pubCom/imgBar/imgBar'
 export default {
     name: "detailHead",
+    props: {
+        data_city_name:{
+            type:String
+        }
+    },
     components: {
         detailRecom,
         imgBar
@@ -98,60 +103,77 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    @import '~style/mixin.styl'
-    .head-wrap
-        position relative
-        height 0
-        overflow hidden
-        padding-bottom 55%
-        .head-header
-            z-index 1000
-            position fixed
-            top 0 
-            left 0
-            height .84rem
-            width 100%
-            background-color #00BCD4
-            display flex
-            line-height .8rem
-            .back-btn
-                display line-block
-                color #ffffff
-                width 0.8rem
-                heigth .84rem
-                line-height .9rem
-                text-align center
-                .back
-                    font-size .6rem
-            .header-title
-                flex 1
-                text-align center
-                margin-right .8rem
-                font-size .34rem
-                color #ffffff
-        .head-img
-            width 100%
-        .head-info
-            position absolute 
-            left .3rem 
-            right 0
-            bottom .3rem
-            line-height .3rem
-            color #ffffff
-            .info-title
-                font-size .36rem
-                padding .2rem 0
-        .head-icon
-            position absolute
-            top .2rem
-            left .3rem
-            color #fff
-            width .8rem
-            line-height .8rem
-            text-align center
-            background #000
-            opacity .8
-            font-size .6rem
-            border-radius 50%
-        
+@import '~style/mixin.styl';
+
+.head-wrap {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 55%;
+
+  .head-header {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0.84rem;
+    width: 100%;
+    background-color: #00BCD4;
+    display: flex;
+    line-height: 0.8rem;
+
+    .back-btn {
+      display: line-block;
+      color: #ffffff;
+      width: 0.8rem;
+      heigth: 0.84rem;
+      line-height: 0.9rem;
+      text-align: center;
+
+      .back {
+        font-size: 0.6rem;
+      }
+    }
+
+    .header-title {
+      flex: 1;
+      text-align: center;
+      margin-right: 0.8rem;
+      font-size: 0.34rem;
+      color: #ffffff;
+    }
+  }
+
+  .head-img {
+    width: 100%;
+  }
+
+  .head-info {
+    position: absolute;
+    left: 0.3rem;
+    right: 0;
+    bottom: 0.3rem;
+    line-height: 0.3rem;
+    color: #ffffff;
+
+    .info-title {
+      font-size: 0.36rem;
+      padding: 0.2rem 0;
+    }
+  }
+
+  .head-icon {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.3rem;
+    color: #fff;
+    width: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    background: #000;
+    opacity: 0.8;
+    font-size: 0.6rem;
+    border-radius: 50%;
+  }
+}
 </style>

@@ -40,10 +40,7 @@
 <script>
 export default {
     name:"recommend",
-    props:["recomment"],
-    deactivated(){
-        location.reload()
-    }
+    props:["recomment"]
 }
 </script>
 
@@ -81,7 +78,7 @@ export default {
                     .paddin
                         padding: .1rem 0
                 .cont-name
-                    font-size: 20px
+                    font-size: 19px
                     font-weight: bold
                     width 4rem
                     ellipsis()

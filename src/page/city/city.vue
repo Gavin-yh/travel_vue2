@@ -25,6 +25,7 @@ export default {
     methods: {
         childVal(val){
             if(val){
+                console.log(val)
                this.graph = val 
             }
         },

@@ -56,6 +56,7 @@ export default {
        changeHotCity (val){
         //    this.$store.commit("changeState" , val)  利用辅助方法 减少操作
            this.changeState(val)
+           console.log('s')
            this.$router.push({path:"/"})
        }
    },
@@ -71,7 +72,7 @@ export default {
        }
    },
    mounted (){
-       this.scroll = new Bscroll(this.$refs.wrapper)
+       this.scroll = new Bscroll(this.$refs.wrapper, { click: true })
    },
 }
 </script>

@@ -91,7 +91,7 @@ export default {
                 .localtion-title
                     display inline-block
                     min-width .6rem
-                    max-width 1.9rem
+                    max-width 1.2rem
                     height 100%
                     ellipsis()
         

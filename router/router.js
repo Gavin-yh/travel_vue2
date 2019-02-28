@@ -10,7 +10,6 @@ import pageDetail from '@/page/pageDetail/detail.vue'
 import city from '@/page/city/city.vue'
 export default new router({
     // mode :"history",
-    // base: './',
     routes:[{
         path: '/hot-All-bar',
         component: hotAllBar

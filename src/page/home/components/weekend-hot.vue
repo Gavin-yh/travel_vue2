@@ -41,9 +41,6 @@ export default {
       ...mapMutations({
          changeViewName : "changeViewName"
       })
-   },
-   deactivated(){
-      location.reload()
    }
 }
 </script>
@@ -51,8 +48,6 @@ export default {
     @import '~style/mixin.styl'
    .weekend-hot
       width 100%
-      height 0
-      padding-bottom 53%
       margin-top .2rem
       background #ffffff
       .hot-title

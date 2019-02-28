@@ -20,7 +20,7 @@ export default {
            viewName: state => state.viewName
        }) 
     },
-    mounted (){
+    activated (){
         console.log('reun')
         //请求相应图片 传递给imgBar 由imgBar做一定的展示，以及再传递給画廊 gallary进行数据的渲染
         //上面的解释，是针对于用父子组件来传值的方法
@@ -45,7 +45,7 @@ export default {
 
                 }
             })
-    },
+    }
     
 }
 </script>
