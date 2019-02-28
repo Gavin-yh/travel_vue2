@@ -20,6 +20,12 @@ export default {
            viewName: state => state.viewName
        }) 
     },
+    watch:{
+        $route(to,from){
+　　　　　　 document.body.scrollTop = 0
+            document.documentElement.scrollTop = 0
+        }
+    },
     activated (){
         console.log('reun')
         //请求相应图片 传递给imgBar 由imgBar做一定的展示，以及再传递給画廊 gallary进行数据的渲染
