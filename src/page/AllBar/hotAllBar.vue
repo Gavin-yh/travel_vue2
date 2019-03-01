@@ -1,14 +1,21 @@
 <template>
-   <div>
-       this is loo-bar
-   </div> 
+    <div class="banner-wrap">
+        <default-header></default-header>
+    </div>
 </template>
 
 <script>
+import defaultHeader from 'pubCom/headerBar/defaultHeader'
+import barList from './component/barList.vue'
 export default {
-    
+    name: "bannerBar",
+    components: {
+        defaultHeader,
+        barList
+    }
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
+    
 </style>

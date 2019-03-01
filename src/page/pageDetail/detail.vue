@@ -21,6 +21,7 @@ export default {
        }) 
     },
     watch:{
+        //监听路由，当第二次切换进入detail时，将页面至于顶部（防止出来，新进来的页面，位置停在了上次浏览的位置）
         $route(to,from){
 　　　　　　 document.body.scrollTop = 0
             document.documentElement.scrollTop = 0
@@ -32,8 +33,8 @@ export default {
         //上面的解释，是针对于用父子组件来传值的方法
 
         //下面的方法则是用状态管理vuex加上localStorage 进行的数据在组件间的传递
-        // axios.get ('/api/gallary.json')
-        axios.get('http://xpian.aliveto.cn/gallary.json')
+        axios.get ('/api/gallary.json')
+        // axios.get('http://xpian.aliveto.cn/gallary.json')
             .then (res => {
                 if (res.status === 200){
                     res.data.data.forEach(ele => {

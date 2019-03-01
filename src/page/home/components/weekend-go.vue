@@ -5,7 +5,7 @@
             <li class="wrap-item"  v-for = "item of weekendGo"  :key = "item.id">
                 <a href = "" class="wrap-content">
                     <div class="wrap-img">
-                        <img :src = "item.url"/>
+                        <img v-lazy = "item.url"/>
                     </div>
                         <div class="wrap-info">
                         <p class="info-title">{{item.title}}</p>

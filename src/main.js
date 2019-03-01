@@ -8,11 +8,15 @@ import '../src/assets/styles/reset.css'
 import './assets/styles/border.css'
 import './assets/styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
+import lazyLoad from 'vue-lazyload'
 // import '../mock/mock'
 
 
 fastclick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
+Vue.use(lazyLoad,{
+    loading: '../public/photo/loading1.png'
+})
 
 
 Vue.config.productionTip = false

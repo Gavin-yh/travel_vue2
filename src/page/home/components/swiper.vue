@@ -20,9 +20,10 @@ export default {
             swiperOption : {
                 pagination:".swiper-pagination",
                 loop:true,
-                autoplay: 2000,
+                autoplay: 1000,
                 speed: 1000,
-                initialSlide :0
+                initialSlide: 1,
+                disableOnInteraction: false 
 
             }
         }

@@ -3,7 +3,7 @@
       <div class="hot-title">
          <img class = "title-img" src = "http://img1.qunarzz.com/piao/fusion/1711/16/bfbb9874e8f11402.png"/>
          <span class="title">本周热门榜单</span>
-         <router-link class="title-link" to = "/hot-all-bar">
+         <router-link class="title-link" to = "/banner">
             <span>全部榜单</span>
             <i class="iconfont">&#xe632;</i>
          </router-link>
@@ -16,11 +16,12 @@
                :key = "item.id"
                :to = "'/detail/' + item.name"
                @click.native="changeVname(item.name)"
+
             >
             <!-- getViewName  用来获取 相应景区的名字，
             从而去改变 vuex里面的 ViewName 这个状态 
             供详情页里的相册组件和取的相应的数据 -->
-               <img class="info-wrap-item-img" :src="item.url"/>
+               <img class="info-wrap-item-img" :src = "item.url"/>
                <p class="dec">{{item.text}}</p>
             </router-link>
          </ul>

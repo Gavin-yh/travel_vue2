@@ -7,7 +7,7 @@
             </li>
             <li class="list-item">
                 <span class="iconfont">&#xe602;</span>
-                <router-link class="look-link" to = "/look-bar">必游榜单</router-link>               
+                <router-link class="look-link" to = "/banner">必游榜单</router-link>               
             </li>
         </ul>
     </div>

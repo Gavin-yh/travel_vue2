@@ -11,7 +11,7 @@ import city from '@/page/city/city.vue'
 export default new router({
     // mode :"history",
     routes:[{
-        path: '/hot-All-bar',
+        path: '/banner',
         component: hotAllBar
     },{
         path: '/',

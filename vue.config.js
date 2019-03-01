@@ -11,11 +11,11 @@ module.exports = {
         port:"8080",
         proxy:{
             "/api":{
-                target:"http://xpian.aliveto.cn",
-                // target:"http://localhost:8080",
-                // pathRewrite:{
-                //     "^/api":"/data/"
-                // }
+                // target:"http://xpian.aliveto.cn",
+                target:"http://localhost:8080",
+                pathRewrite:{
+                    "^/api":"/data/"
+                }
             }
         }
     },
