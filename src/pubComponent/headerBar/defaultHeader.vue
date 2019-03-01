@@ -1,14 +1,16 @@
 <template>
     <div class="Dheader-wrap">
         <div class="back-icon border-right">
-            <i class="iconfont icon">&#xe64a;</i>
+            <router-link tag = "i" to = "/" class="iconfont icon ">&#xe64a;</router-link>
         </div>
         <div class="content">
             榜单--{{stateCity}}
         </div>
         <div class="home-icon border-left">
-            <p class="iconfont">&#xe60f;</p>
-            {{stateCity}}
+            <router-link class="city" to = "/city">
+                <p class="iconfont">&#xe60f;</p>
+                {{stateCity}}
+            </router-link>
         </div>
     </div>
 </template>
@@ -30,32 +32,32 @@ export default {
     @import '~style/mixin.styl'
     .Dheader-wrap
         display flex
-        background #000
-        padding-bottom .3rem
+        background #00bcd4
         .back-icon
             height .84rem
-            background #ffffff
             .icon
                 display inline-block
                 line-height .84rem
                 width .84rem
                 font-size .7rem
+                color #ffffff
         .content
             flex-grow 1
-            background #ffffff
             text-align center
             line-height .84rem
             font-size .36rem
             ellipsis()
+            color #ffffff
         .home-icon
-            background #ffffff
             width .84rem
             text-align center
             padding 0rem .1rem
             ellipsis()
             min-width .84rem
-            p
-                margin .1rem 0rem
+            .city
+                color #ffffff
+                p
+                    margin .1rem 0rem
         
 
 </style>

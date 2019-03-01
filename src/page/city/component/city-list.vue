@@ -44,10 +44,17 @@ import Bscroll from "better-scroll"
 import { mapState , mapMutations } from 'vuex'
 export default {
    name: "city-list",
+   data (){
+       return {
+        Path: {//对进入这个页面得路由进行缓存，以便用户选择后，好切换回原来的页面
+           path: "/"
+       }
+       }
+   },
    props:{
-       hotcity : Array,
-       cities : Object,
-       graph : String
+       hotcity: Array,
+       cities: Object,
+       graph: String
    },
    methods : {
        ...mapMutations ({
@@ -56,8 +63,7 @@ export default {
        changeHotCity (val){
         //    this.$store.commit("changeState" , val)  利用辅助方法 减少操作
            this.changeState(val)
-           console.log('s')
-           this.$router.push({path:"/"})
+           this.$router.push(this.Path)
        }
    },
    computed : {
@@ -69,6 +75,11 @@ export default {
        graph (){
            const el = this.$refs[this.graph][0]
            this.scroll.scrollToElement(el)
+       },
+       $route(to , from ){ //监听路由的变化，将从哪里点进来的路由做个缓存，好在选择页面后进行相应的跳转
+           if(this.Path !== from.path){
+               this.Path = from.path
+           }
        }
    },
    mounted (){

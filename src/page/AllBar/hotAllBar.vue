@@ -1,6 +1,7 @@
 <template>
     <div class="banner-wrap">
         <default-header></default-header>
+        <bar-list></bar-list>
     </div>
 </template>
 
