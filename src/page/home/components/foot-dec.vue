@@ -14,4 +14,6 @@
         background: #ffffff
         text-align: center
         line-height: .7rem
+        position relative
+        bottom 0rem
 </style>

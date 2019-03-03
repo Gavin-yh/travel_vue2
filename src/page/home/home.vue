@@ -20,7 +20,7 @@ import homeRecom from './components/recommend.vue'
 import homeWekGo from './components/weekend-go.vue'
 import homeFoot from './components/foot-dec.vue'
 import axios from 'axios'
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
     name : "homepage",

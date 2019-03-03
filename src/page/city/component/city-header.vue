@@ -1,7 +1,7 @@
 <template>
     <div class="cityheader">
         <div class="header-bar">
-            <router-link to = "/" class="back-btn">
+            <router-link :to = "path" class="back-btn">
                 <i class="back iconfont">&#xe64a;</i>
             </router-link>
             <h1 class="title">城市选择</h1>
@@ -20,10 +20,10 @@
 
 <script>
 import Bscroll from "better-scroll"
-import { mapMutations } from "vuex"
+import { mapState ,mapMutations } from "vuex"
 
 export default {
-    name : "cityheader",
+    name: "cityheader",
     data (){
         return {
             keyword : '',
@@ -32,7 +32,7 @@ export default {
             Status : false, //search-list-content
         }
     },
-    props : {
+    props: {
         cities : Object
     },
     methods : {
@@ -41,14 +41,17 @@ export default {
         }),
         changeHotCity(val){
             this.changeState(val)
-            this.$router.push({path : "/"})
+            this.$router.push(this.path)
         }
     },
     computed : {
         noData (){
             return !this.list.length
-        }
+        },
         //  noData 控制没有数据时 no-data 的显隐
+        ...mapState ({
+            path: state => state.detailRouteState
+        })
     },
     watch : {
         keyword (){
@@ -77,6 +80,13 @@ export default {
     },
     mounted (){
         this.scroll = new Bscroll(this.$refs["s-l-c"]) //创建better-scroll的实例 参数用$refs获取的dom 元素
+    },
+    //当页面从其他地方加载时，初始化搜索框的数据
+    //（当没有初始化时，在次进入页面，由于是单页应用，页面不会刷新，导致上一次的操作还在，
+    //如搜索框里上次搜的词条, search-list-content 没有隐藏）
+    activated (){
+        this.Status = false
+        this.keyword = ""
     }
 }
 </script>

@@ -9,7 +9,7 @@
                 class="recom-content" 
                 v-for = "item of recomment" 
                 :key = "item.id"
-                @click="$store.commit('changeViewName',item.name)"
+                @click="changeName(item.name)"
             >
                 <router-link 
                     :to ="'/detail/' + item.name" 
@@ -38,9 +38,15 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-    name:"recommend",
-    props:["recomment"]
+    name: "recommend",
+    props: ["recomment"],
+    methods: {
+        ...mapMutations({
+            changeName: "changeViewName"
+        })
+    }
 }
 </script>
 

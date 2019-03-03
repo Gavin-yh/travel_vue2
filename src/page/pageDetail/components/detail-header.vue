@@ -2,7 +2,7 @@
   <div>
     <div @click="changeS" class="head-wrap">
       <div class="head-header" :style="myOpacity" v-show="showHeader">
-        <router-link to="/" class="back-btn">
+        <router-link :to="detailRouteState" class="back-btn">
           <i class="back iconfont">&#xe64a;</i>
         </router-link>
         <p class="header-title">{{imgName}}</p>
@@ -15,7 +15,7 @@
         </div>
         <div class="info-title">{{imgName}}(AAAAA景区)</div>
       </div>
-      <router-link v-show="!showHeader" to="/" class="iconfont head-icon">&#xe64a;</router-link>
+      <router-link v-show="!showHeader" :to="detailRouteState" class="iconfont head-icon">&#xe64a;</router-link>
     </div>
     <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
     <!-- <keep-alive> -->
@@ -87,8 +87,10 @@ export default {
             imgLength: state => state.imgLength,
             imgName: state => state.imgName,
             firstImg: state => state.firstImg,
+            recom: state => state.recom,
 
-            recom: state => state.recom
+            //获取哪个路由点进了detail（详情页），好做回退
+            detailRouteState: state => state.detailRouteState
         })
     },
     activated (){

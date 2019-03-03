@@ -15,7 +15,7 @@ import lazyLoad from 'vue-lazyload'
 fastclick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 Vue.use(lazyLoad,{
-    loading: '../public/photo/loading1.png'
+    loading: '../public/photo/loading2.png'
 })
 
 
