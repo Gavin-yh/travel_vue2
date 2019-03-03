@@ -23,5 +23,6 @@ export default  {
     imgName:"",
     firstImg:"",
     recom:null,//详情页中的数据（detail-recommend)
+
     detailRouteState: DefaultRouteState//路由的缓存 ， 供城市选择与首页和榜单页面之间的逻辑
 }

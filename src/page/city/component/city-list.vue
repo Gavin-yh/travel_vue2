@@ -64,6 +64,8 @@ export default {
         //    this.$store.commit("changeState" , val)  利用辅助方法 减少操作
            this.changeState(val)
         //    console.log(this.$router)
+        console.log('gogogogogoogogo')
+        // this.$router.go(-1)
            this.$router.push(this.path)
        }
    },

@@ -10,6 +10,7 @@
             </a>
         </div>
         <div class = "localtion">
+            <!-- @click.native = "changeControlWatch" -->
             <router-link @click.native = "changeControlWatch" class="local-link" to = "/city">
                 <span class="localtion-title">{{stateCity}}</span>
                 <i class="localtion-icon iconfont">&#xe625;</i>

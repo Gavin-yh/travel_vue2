@@ -41,6 +41,7 @@ export default {
         }),
         changeHotCity(val){
             this.changeState(val)
+            // console.log("go to router")
             this.$router.push(this.path)
         }
     },

@@ -26,13 +26,13 @@ export default {
     // }
 
 
-    //改变路由，对路由进行缓存
+    //改变路由，对路由进行缓存 (用router.go()  来进行回退。更方便,但是介于 很多地方 :to = ""绑定的路由 go 实现不了)
     chagefromRouteState (state,params){
         console.log("chagefromRouteState")
         state.detailRouteState = params
         try{
             localStorage.detailRouteState = params
         }catch{}
-        // console.log(state.detailRouteState)
+        console.log(state.detailRouteState)
     }
 }
