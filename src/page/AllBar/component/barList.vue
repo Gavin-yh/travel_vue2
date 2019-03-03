@@ -26,7 +26,13 @@
                 </router-link>
                 <div class="re-content-recom">{{item.recom}}</div>
                 <div class="recontent-more border-top">
-                    <router-link :to="'/detail/' + item.name" class="iconfont">查看更多&#xe63f;</router-link>
+                    <router-link 
+                        :to="'/detail/' + item.name" 
+                        class="iconfont"
+                        @click.native = "changeName(item.name)"
+                    >
+                        查看更多&#xe63f;
+                    </router-link>
                 </div>
             </div>
        </div>
