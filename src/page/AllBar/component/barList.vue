@@ -53,19 +53,7 @@ export default {
     methods: {
         ...mapMutations({
             changeName: "changeViewName",
-            chagefromRouteState: "chagefromRouteState"
         })
-    },
-    computed: {
-        ...mapState({
-            routeFrom: 'detailRouteState'
-        })
-    },
-    watch: {
-        $route (to ,from){
-            console.log('barlist')
-            this.chagefromRouteState(from.path)
-        }
     },
     mounted (){
         this.scroll = new Bscroll(this.$refs.wrapper)

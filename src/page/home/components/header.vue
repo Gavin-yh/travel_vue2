@@ -43,12 +43,12 @@ export default {
     },
     watch: {
         $route (to ,from){
-            //利用状态管理，对改页面的路由进行保存，在进入城市选择页面事，页面想要跳回来，做准备
+            //利用状态管理，对该页面的路由进行保存，在进入城市选择页面时，页面想要跳回来，做准备
             //城市选择页，有两个地方可以进入，一个是home的header，另一个是hotAllBar页面，
             //为了能跳回进入城市选择页的页面，只好对路由进行缓存
             if (this.controlWatch){
-                console.log("home is $router")
-                // console.log(to,from)
+                console.log("home-header is $router")
+                console.log(to,from)
                 // console.log(this.$route)
                 this.chagefromRouteState(from.path)
                 this.controlWatch = false

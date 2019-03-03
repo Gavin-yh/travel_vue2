@@ -7,7 +7,7 @@
             榜单--{{stateCity}}
         </div>
         <div class="home-icon border-left">
-            <router-link class="city" to = "/city">
+            <router-link @click.native = "changeState" class="city" to = "/city">
                 <p class="iconfont">&#xe60f;</p>
                 {{stateCity}}
             </router-link>
@@ -16,15 +16,36 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState ,mapMutations } from 'vuex'
 
 export default {
     name: "defaultHeader",
+    data (){
+        return {
+            flag: false
+        }
+    },
     computed: {
         ...mapState({
             stateCity : state => state.city
         })
-    }
+    },
+    methods: {
+        ...mapMutations ({
+             chagefromRouteState: "chagefromRouteState"
+        }),
+        changeState (){
+           this.flag = true 
+        }
+    },
+    watch: {
+        $route (to ,from){
+            if(this.flag){
+                console.log('barlist')
+                this.chagefromRouteState(from.path)
+            }
+        }
+    },
 }
 </script>
 
