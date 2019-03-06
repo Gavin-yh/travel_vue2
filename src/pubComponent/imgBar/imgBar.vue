@@ -12,7 +12,7 @@
                 </li>
             </ul>
         </div>
-        <gallary :index = "index" @changeImgShow = "changeImgShow" v-if = "showImg"></gallary>
+        <gallary :gallaryUrl = "gallaryUrl" :index = "index" @changeImgShow = "changeImgShow" v-if = "showImg"></gallary>
     </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
     name: "imgBar",
     props: {
         paramsId: Number,
+        gallaryUrl: Array
     },
     components: {
         gallary
@@ -46,6 +47,7 @@ export default {
         showGallary (index){
             this.showImg = true
             this.index = index
+            // 评论区 点击改变不了 图片的索引
         },
         changeImgShow (){
             this.showImg = false

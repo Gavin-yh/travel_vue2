@@ -10,8 +10,7 @@
             </a>
         </div>
         <div class = "localtion">
-            <!-- @click.native = "changeControlWatch" -->
-            <router-link @click.native = "changeControlWatch" class="local-link" to = "/city">
+            <router-link  class="local-link" to = "/city">
                 <span class="localtion-title">{{stateCity}}</span>
                 <i class="localtion-icon iconfont">&#xe625;</i>
             </router-link>
@@ -23,12 +22,6 @@ import { mapState ,mapMutations } from 'vuex'
 
 export default {
     name: "headerpage",
-    data (){
-        return {
-            controlWatch: false//用来优化代码的效率，当首页点击，城市选择时才触发$watch里面的程序
-                                //点其他地方，也会触发，但通过这个状态控制，减少页面消耗的性能。
-        }
-    },
     computed: {
         ...mapState ({
             stateCity : state => state.city
@@ -37,23 +30,18 @@ export default {
     methods: {
         ...mapMutations({
             chagefromRouteState: "chagefromRouteState"
-        }),
-        changeControlWatch (){
-            this.controlWatch = true
-        }
+        })
+        
     },
     watch: {
         $route (to ,from){
             //利用状态管理，对该页面的路由进行保存，在进入城市选择页面时，页面想要跳回来，做准备
             //城市选择页，有两个地方可以进入，一个是home的header，另一个是hotAllBar页面，
             //为了能跳回进入城市选择页的页面，只好对路由进行缓存
-            if (this.controlWatch){
-                console.log("home-header is $router")
-                console.log(to,from)
-                // console.log(this.$route)
-                this.chagefromRouteState(from.path)
-                this.controlWatch = false
-            }
+
+            this.chagefromRouteState(from.path)
+            console.log("home-header is $router")
+            console.log(to,from)
         }
     },
 

@@ -46,11 +46,18 @@ export default {
             .then(res => {
                     let Data = res.data
                     if(res.statusText == "OK"){
-                        this.headerSwiper = Data.headerSwiper
-                        this.iconList = Data.iconList
-                        this.weekendHot = Data.weekendHot
-                        this.recomment = Data.recomment
-                        this.weekendGo = Data.weekendGo
+                        // this.headerSwiper = Data.headerSwiper
+                        // this.iconList = Data.iconList
+                        // this.weekendHot = Data.weekendHot
+                        // this.recomment = Data.recomment
+                        // this.weekendGo = Data.weekendGo
+                        ({
+                            headerSwiper: this.headerSwiper,
+                            iconList: this.iconList,
+                            weekendHot: this.weekendHot,
+                            recomment: this.recomment,
+                            weekendGo: this.weekendGo
+                        } = Data )
                     }
                 })
         }

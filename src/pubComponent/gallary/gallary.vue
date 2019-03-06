@@ -2,7 +2,7 @@
     <div @click = "changestate" class="gallary-wrap">
         <div class="gallary-cont">
             <swiper :options="swiperOption">
-                <swiper-slide v-for = "(item,index) of url" :key = "index">
+                <swiper-slide v-for = "(item,index) of gallaryUrl" :key = "index">
                     <img class="cont-img" :src="item" alt="">
                 </swiper-slide>
                 <div class="swiper-pagination"  slot="pagination"></div>
@@ -16,7 +16,7 @@ import { mapState } from 'vuex'
 export default {
     name: "gallary",
     props: {
-        // url : Array,
+        gallaryUrl : Array,
         index : Number
     },
     data () {
@@ -30,11 +30,6 @@ export default {
                 initialSlide: this.index
             }
         }
-    },
-    computed:{
-        ...mapState({
-            url: state => state.imgUrl
-        })
     },
     methods: {
         changestate (){
@@ -57,6 +52,7 @@ export default {
         flex-direction column
         justify-content center
         background #000
+        z-index 1009
         .gallary-cont
             background #000
             .cont-img

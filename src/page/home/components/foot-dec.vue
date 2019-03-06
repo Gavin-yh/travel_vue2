@@ -5,6 +5,9 @@
 </template>
 
 <script>
+export default {
+    name: "footWrap"
+}
 </script>
 
 <style lang="stylus" scoped>

@@ -60,7 +60,7 @@ export default {
                     height .2rem
                     background #f40
             .travel-content 
-                padding 0 .2rem
+                padding: 0rem 0.2rem .2rem;
                 .Tcon-title
                     font-size .3rem
                     font-weight bold

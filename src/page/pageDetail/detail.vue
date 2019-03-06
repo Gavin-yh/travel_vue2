@@ -1,6 +1,6 @@
 <template>
     <div>
-        <detail-header></detail-header>
+        <detail-header :comment1 = "comment"></detail-header>
     </div>
 </template>
 
@@ -9,9 +9,13 @@ import { mapState } from 'vuex'
 import axios from "axios"
 
 import detailHeader from "./components/detail-header.vue"
-
 export default {
     name: "Detail",
+    data (){
+        return {
+            comment: []
+        }
+    },
     components: {
        detailHeader
     },
@@ -28,15 +32,18 @@ export default {
             console.log('detail scrolltop')
         }
     },
+    //mounted 只有当页面构建完成是触发一次。用这个的话，在和主页切换的时候，数据得刷新才能再次获取
+    //思考 下面的为什么用vuex  而不用父子组件的传值方式
     activated (){
         console.log('reun')
-        //请求相应图片 传递给imgBar 由imgBar做一定的展示，以及再传递給画廊 gallary进行数据的渲染
+        // 请求相应图片 传递给imgBar 由imgBar做一定的展示，以及再传递給画廊 gallary进行数据的渲染
         //上面的解释，是针对于用父子组件来传值的方法
 
         //下面的方法则是用状态管理vuex加上localStorage 进行的数据在组件间的传递
         axios.get ('/api/gallary.json')
         // axios.get('http://xpian.aliveto.cn/gallary.json')
             .then (res => {
+                console.log(res)
                 if (res.status === 200){
                     res.data.data.forEach(ele => {
                         // 使用localStorage 得结合 weekend-hot 导航 a ,若这里用<router-link>  页面起不到刷新的效果，则用户主动刷新页面是时
@@ -45,7 +52,19 @@ export default {
                         //    console.log('ssss', ele.name)
                         //    console.log(ele.url)
                            console.log(ele)
-                        
+
+
+                          //利用父子组件传值的方式明显效率应该会比 用vuex来的高
+                           //有一个误区： 来这里传递给子组件时
+                                        //  在子组件的activated钩子里打印这个父组件传过来的值时，为空（一直以为没有传过来）
+                                        // 实际上已经传过来的 ，只是在路由切换的时候，父组件的activated钩子会晚于该组件下的子组件的activated
+                                        //导致值在父组件中还没请求到时，子组件就开始打印，为空
+                                        //到父组件的activated执行时，将值传递给子组件，在打印时，导致一种假象，父组件能打印，子组件中打印的是空
+                                        //注意观察执行的循序。（差点陷入恐慌。。。。）                                   
+
+                           this.comment = ele.comment
+                           console.log('ddddd')
+                           console.log(this.comment)
                            this.$store.commit('saveDetailData', {url:ele.url, name:ele.name,recom:ele.recom})
                         //传递多个参数,用对象的形式来传递
                        }

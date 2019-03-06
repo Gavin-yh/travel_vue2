@@ -82,7 +82,9 @@ export default {
        }
    },
    mounted (){
-       this.scroll = new Bscroll(this.$refs.wrapper, { click: true })
+      setTimeout( () => {
+        this.scroll = new Bscroll(this.$refs.wrapper, { click: true })
+      },100) 
    },
 }
 </script>

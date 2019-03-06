@@ -56,9 +56,10 @@ export default {
         })
     },
     mounted (){
-        this.scroll = new Bscroll(this.$refs.wrapper)
+        this.scroll = new Bscroll(this.$refs.wrapper,{click:true})
     },
     created (){
+        // axios.get('http://xpian.aliveto.cn/allBar.json')
        axios.get("api/allBar.json")
             .then(res => {
                 if(res.statusText == "OK"){

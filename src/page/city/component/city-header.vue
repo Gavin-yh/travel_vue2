@@ -80,7 +80,7 @@ export default {
         }
     },
     mounted (){
-        this.scroll = new Bscroll(this.$refs["s-l-c"]) //创建better-scroll的实例 参数用$refs获取的dom 元素
+        this.scroll = new Bscroll(this.$refs["s-l-c"],{click:true}) //创建better-scroll的实例 参数用$refs获取的dom 元素
     },
     //当页面从其他地方加载时，初始化搜索框的数据
     //（当没有初始化时，在次进入页面，由于是单页应用，页面不会刷新，导致上一次的操作还在，

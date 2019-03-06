@@ -19,9 +19,10 @@
     </div>
     <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
     <!-- <keep-alive> -->
-    <img-bar @hidden="hidden" v-if="state"></img-bar>
+    <img-bar @hidden="hidden" v-if="state" :gallaryUrl = "url"></img-bar>
     <!-- </keep-alive> -->
     <detail-recom v-show="!state" :recom="recom"></detail-recom>
+    <detail-comment v-show="!state" :com = "comment1"></detail-comment>
   </div>
 </template>
 
@@ -29,18 +30,17 @@
 
 import { mapState, mapMutations } from "vuex"
 import detailRecom from './detail-recommend.vue'
+import detailComment from "./comment.vue"
 
 import imgBar from 'pubCom/imgBar/imgBar'
 export default {
     name: "detailHead",
-    props: {
-        data_city_name:{
-            type:String
-        }
-    },
+    props: [
+        "comment1"],
     components: {
         detailRecom,
-        imgBar
+        imgBar,
+        detailComment
     },
     data (){
         return {
@@ -89,11 +89,18 @@ export default {
             firstImg: state => state.firstImg,
             recom: state => state.recom,
 
+            url: state => state.imgUrl,//传递给 imgBar --> 传给 gallary好让画廊组件的可迁移性提高
+
+
             //获取哪个路由点进了detail（详情页），好做回退
             detailRouteState: state => state.detailRouteState
         })
     },
     activated (){
+        console.log(this.detailRouteState)
+        console.log('sss')
+        console.log(this.url)
+        console.log(this.comment1)
         window.addEventListener('scroll', this.getTop)
     },
     deactivated (){
