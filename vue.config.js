@@ -24,5 +24,6 @@ module.exports = {
             .set("style", resolve('src/assets/styles'))
             .set('@',resolve('src'))
             .set('pubCom',resolve('src/pubComponent'))
+            .set('homeFoot',resolve('src/page/home'))
     }
 }

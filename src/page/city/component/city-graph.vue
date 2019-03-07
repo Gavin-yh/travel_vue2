@@ -1,18 +1,15 @@
 <template>
     <div class="wrap">
        <ul class="wrap-item">
-           <li 
-            @click = "getGp" 
+           <a 
             :ref = "key" 
             class="item" 
             v-for = "(val , key) of cities" 
             :key = "key"
-            @touchstart = "touchstart"
-            @touchmove = "touchmove"
-            @touchend = "touchend"
+            @click = "scroll"
            >
              {{key}}
-           </li>
+           </a>
        </ul> 
     </div>
 </template>
@@ -33,6 +30,11 @@ export default {
        }
    },
    methods:{
+       scroll (e){
+           document.getElementById(e.target.innerText).scrollIntoView(true); 
+        //    document.getElementsByClassName("list-wrap")[0].style.marginTop = ""
+        //    document.getElementsByClassName("list-wrap")[0].style.marginTop = "1.7rem"
+       },
        getGp (e){
            this.$emit("export",e.target.innerText)
        },
@@ -72,7 +74,7 @@ export default {
             display flex
             flex-direction column 
             justify-content center
-            position absolute
+            position fixed
             top 2.58rem
             right 0
             width .4rem

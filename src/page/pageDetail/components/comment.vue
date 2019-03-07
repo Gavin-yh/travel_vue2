@@ -25,6 +25,9 @@
                     </div>
                 </div>
             </div>
+            <div class="search-more">
+                <p class="iconfont">查看更多&#xe632;</p>
+            </div>
         </div>
         <gallary-bar :index = "index" :gallaryUrl = "url"  v-show="showImg" @changeImgShow = "changeImgShow"></gallary-bar>
     </div>
@@ -55,10 +58,10 @@ export default {
            this.showImg = false
        },
        getUrl (arrUrl, index){
-           console.log(arrUrl)
+        //    console.log(arrUrl)
            this.url = arrUrl
            this.index = index
-           console.log(this.index)
+        //    console.log(this.index)
 
        }
    },
@@ -67,8 +70,6 @@ export default {
 
    },
    activated (){
-       console.log("com  s s s s s")
-       console.log(this.com)
    }
 }
 </script>
@@ -121,4 +122,12 @@ export default {
                         padding .05rem
                         img
                             width 100%
+        .search-more
+            height .6rem
+            border-top 1px dashed #eee
+            p
+                line-height .62rem
+                font-size 16px
+                text-align center
+
 </style>

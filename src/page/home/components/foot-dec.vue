@@ -19,4 +19,5 @@ export default {
         line-height: .7rem
         position relative
         bottom 0rem
+        margin-top .2rem
 </style>

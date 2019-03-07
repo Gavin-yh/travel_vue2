@@ -9,7 +9,7 @@
                     <li class="wrap-item">{{stateCity}}</li>
                 </ul>
             </div>
-            <div class="area">
+            <div class="area scroll">
                 <div class="title border-topbottom">
                     热门城市
                 </div>
@@ -26,11 +26,11 @@
             </div>
             <div class="area">
                 <div :ref = "key"  v-for= "(val,key) of cities" :key = "key">
-                    <div class="title border-topbottom">
+                    <div class="title border-topbottom" :id="key" >
                         {{key}}
                     </div>
-                    <ul class="grapheme">
-                        <li @click = changeHotCity(res.name) v-for = "res of val" :key = "res.id" class = "grap-item border-bottom">{{res.name}}</li>
+                    <ul class="wrap">
+                        <li @click = changeHotCity(res.name) v-for = "res of val" :key = "res.id" class = "wrap-item border-bottom">{{res.name}}</li>
                     </ul>
                 </div>
             </div>
@@ -39,18 +39,11 @@
 </template>
 
 <script>
-import Bscroll from "better-scroll"
+// import Bscroll from "better-scroll"
 
 import { mapState , mapMutations } from 'vuex'
 export default {
    name: "city-list",
-//    data (){
-//        return {
-//         Path: {//对进入这个页面得路由进行缓存，以便用户选择后，好切换回原来的页面
-//            path: "/"
-//        }
-//        }
-//    },
    props:{
        hotcity: Array,
        cities: Object,
@@ -62,30 +55,28 @@ export default {
        }),
        changeHotCity (val){
         //    this.$store.commit("changeState" , val)  利用辅助方法 减少操作
-           this.changeState(val)
-        //    console.log(this.$router)
-        console.log('gogogogogoogogo')
-        // this.$router.go(-1)
-           this.$router.push(this.path)
+            this.changeState(val)
+            console.log('gogogogogoogogo')
+            this.$router.go(-1)
        }
    },
    computed : {
        ...mapState({
            stateCity : state => state.city,
-           path: state => state.detailRouteState
        })
    },
    watch: {
-       graph (){
-           const el = this.$refs[this.graph][0]
-           this.scroll.scrollToElement(el)
-       }
+    //    graph (){
+    //        const el = this.$refs[this.graph][0]
+    //        this.scroll.scrollToElement(el)
+    //    }
    },
    mounted (){
-      setTimeout( () => {
-        this.scroll = new Bscroll(this.$refs.wrapper, { click: true })
-      },100) 
-   },
+    //    console.log('city-list mounted')
+    //    setTimeout(()=>{
+    //     this.scroll = new Bscroll(this.$refs.wrapper, { click: true })
+    //    },1000)
+   }
 }
 </script>
 
@@ -96,12 +87,6 @@ export default {
         &:before
             border-color #cccccc
     .list-wrap
-        position absolute
-        top 1.7rem
-        left 0
-        right 0
-        bottom 0
-        overflow hidden
         .title
             line-height .54rem
             background #eee

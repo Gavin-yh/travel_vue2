@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
+// import Bscroll from 'better-scroll'
 import axios from 'axios'
 import { mapState ,mapMutations } from 'vuex'
 export default {
@@ -56,7 +56,7 @@ export default {
         })
     },
     mounted (){
-        this.scroll = new Bscroll(this.$refs.wrapper,{click:true})
+        // this.scroll = new Bscroll(this.$refs.wrapper,{click:true})
     },
     created (){
         // axios.get('http://xpian.aliveto.cn/allBar.json')
@@ -81,7 +81,6 @@ export default {
         left 0rem
         right 0rem 
         bottom 0rem
-        overflow hidden
         .content
             .conten-item
                 margin .45rem 0rem

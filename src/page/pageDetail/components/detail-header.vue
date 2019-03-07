@@ -2,9 +2,9 @@
   <div>
     <div @click="changeS" class="head-wrap">
       <div class="head-header" :style="myOpacity" v-show="showHeader">
-        <router-link :to="detailRouteState" class="back-btn">
+        <div @click = "go" class="back-btn">
           <i class="back iconfont">&#xe64a;</i>
-        </router-link>
+        </div>
         <p class="header-title">{{imgName}}</p>
       </div>
       <img class="head-img" :src="firstImg">
@@ -15,7 +15,7 @@
         </div>
         <div class="info-title">{{imgName}}(AAAAA景区)</div>
       </div>
-      <router-link v-show="!showHeader" :to="detailRouteState" class="iconfont head-icon">&#xe64a;</router-link>
+      <div v-show="!showHeader" @click = "go" class="iconfont head-icon">&#xe64a;</div>
     </div>
     <!-- hidden是detail-header 父级定义的函数 在img-bar里触发 去改变相应的展示 -->
     <!-- <keep-alive> -->
@@ -23,6 +23,8 @@
     <!-- </keep-alive> -->
     <detail-recom v-show="!state" :recom="recom"></detail-recom>
     <detail-comment v-show="!state" :com = "comment1"></detail-comment>
+    <detail-foot v-show="!state"></detail-foot>
+    <home-foot v-show="!state"></home-foot>
   </div>
 </template>
 
@@ -32,6 +34,9 @@ import { mapState, mapMutations } from "vuex"
 import detailRecom from './detail-recommend.vue'
 import detailComment from "./comment.vue"
 
+import detailFoot from "./detail-foot.vue"
+import homeFoot from 'homeFoot/components/foot-dec.vue'
+
 import imgBar from 'pubCom/imgBar/imgBar'
 export default {
     name: "detailHead",
@@ -40,7 +45,9 @@ export default {
     components: {
         detailRecom,
         imgBar,
-        detailComment
+        detailComment,
+        detailFoot,
+        homeFoot
     },
     data (){
         return {
@@ -78,6 +85,9 @@ export default {
             }else{
                 this.showHeader = false
             }
+        },
+        go (){
+            this.$router.go(-1)
         }
         
     },
@@ -93,14 +103,10 @@ export default {
 
 
             //获取哪个路由点进了detail（详情页），好做回退
-            detailRouteState: state => state.detailRouteState
+            // detailRouteState: state => state.detailRouteState
         })
     },
     activated (){
-        console.log(this.detailRouteState)
-        console.log('sss')
-        console.log(this.url)
-        console.log(this.comment1)
         window.addEventListener('scroll', this.getTop)
     },
     deactivated (){

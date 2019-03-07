@@ -1,9 +1,9 @@
 <template>
     <div class="cityheader">
         <div class="header-bar">
-            <router-link :to = "path" class="back-btn">
+            <p @click="go"  class="back-btn">
                 <i class="back iconfont">&#xe64a;</i>
-            </router-link>
+            </p>
             <h1 class="title">城市选择</h1>
         </div>
         <div class="header-search">
@@ -41,8 +41,11 @@ export default {
         }),
         changeHotCity(val){
             this.changeState(val)
-            // console.log("go to router")
-            this.$router.push(this.path)
+            this.go()
+        },
+        go (){
+            console.log("go run ")
+            this.$router.go(-1)
         }
     },
     computed : {
@@ -50,9 +53,6 @@ export default {
             return !this.list.length
         },
         //  noData 控制没有数据时 no-data 的显隐
-        ...mapState ({
-            path: state => state.detailRouteState
-        })
     },
     watch : {
         keyword (){
@@ -95,6 +95,8 @@ export default {
 <style lang="stylus" scoped>
     @import '~style/mixin.styl'
     .cityheader
+        width: 100%;
+        z-index 9
         background #00BCD4
         .header-bar
             height .86rem

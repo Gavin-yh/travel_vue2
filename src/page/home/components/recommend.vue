@@ -11,7 +11,7 @@
                 :key = "item.id"
                 @click="changeName(item.name)"
             >
-                <router-link 
+                <router-link
                     :to ="'/detail/' + item.name" 
                     class="re-content-wrap"
                 >
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+
 import { mapMutations } from 'vuex'
 export default {
     name: "recommend",
@@ -55,7 +56,6 @@ export default {
     .recom-wrap
         margin-top: .2rem
         background: #fff
-        width: 100%
         .recom-title
             padding: .4rem 0
             .title-img
@@ -65,42 +65,46 @@ export default {
             .title
                 font-size: .3rem
                 color: #212121
-        .recom-content
-            padding: .1rem 0 .2rem .3rem 
-            border-bottom: 1px solid #eee
-            .re-content-wrap
-                display: flex
-                width: 100%
-                height: 100%
-                color: #000
-                .content-img
-                    width: 2rem
-                    height: 2rem
-                img 
-                    width: 100%
-                .content-cont
-                    margin: .4rem 0 0 .3rem
-                    flex-grow: 1
-                    .paddin
-                        padding: .1rem 0
-                .cont-name
-                    font-size: 19px
-                    font-weight: bold
-                    width 4rem
-                    ellipsis()
-                .cont-icon
-                    color: #ffb436
-                    i
-                        font-size: 10px !important
-                .cont-info
+        ul
+            height: 0;
+            padding-bottom: 252%;
+            overflow: hidden;
+            .recom-content
+                padding: .1rem 0 .2rem .3rem 
+                border-bottom: 2px solid #eee
+                .re-content-wrap
                     display: flex
-                    .info-com
-                        flex-grow 1
-                    .info-der
-                        width 1.5rem
-                        text-align: right
-                        padding-right: .2rem
+                    width: 100%
+                    height: 100%
+                    color: #000
+                    .content-img
+                        width: 2rem
+                        height: 2rem
+                    img 
+                        width: 100%
+                    .content-cont
+                        margin: .4rem 0 0 .3rem
+                        flex-grow: 1
+                        .paddin
+                            padding: .1rem 0
+                    .cont-name
+                        font-size: 19px
+                        font-weight: bold
+                        width 4rem
                         ellipsis()
+                    .cont-icon
+                        color: #ffb436
+                        i
+                            font-size: 10px !important
+                    .cont-info
+                        display: flex
+                        .info-com
+                            flex-grow 1
+                        .info-der
+                            width 1.5rem
+                            text-align: right
+                            padding-right: .2rem
+                            ellipsis()
         .recom-more
             height: .6rem
             a

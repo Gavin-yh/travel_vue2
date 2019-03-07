@@ -9,6 +9,7 @@ import { mapState } from 'vuex'
 import axios from "axios"
 
 import detailHeader from "./components/detail-header.vue"
+
 export default {
     name: "Detail",
     data (){
@@ -29,13 +30,14 @@ export default {
         $route(to,from){
 　　　　　　 document.body.scrollTop = 0
             document.documentElement.scrollTop = 0
+            this.$store.commit('saveDetailData', {url:[], name:"",recom:{}})
             console.log('detail scrolltop')
+            
         }
     },
     //mounted 只有当页面构建完成是触发一次。用这个的话，在和主页切换的时候，数据得刷新才能再次获取
     //思考 下面的为什么用vuex  而不用父子组件的传值方式
     activated (){
-        console.log('reun')
         // 请求相应图片 传递给imgBar 由imgBar做一定的展示，以及再传递給画廊 gallary进行数据的渲染
         //上面的解释，是针对于用父子组件来传值的方法
 
@@ -43,7 +45,6 @@ export default {
         axios.get ('/api/gallary.json')
         // axios.get('http://xpian.aliveto.cn/gallary.json')
             .then (res => {
-                console.log(res)
                 if (res.status === 200){
                     res.data.data.forEach(ele => {
                         // 使用localStorage 得结合 weekend-hot 导航 a ,若这里用<router-link>  页面起不到刷新的效果，则用户主动刷新页面是时
@@ -51,8 +52,6 @@ export default {
                        if(ele.name == (this.viewName || localStorage.viewName)){
                         //    console.log('ssss', ele.name)
                         //    console.log(ele.url)
-                           console.log(ele)
-
 
                           //利用父子组件传值的方式明显效率应该会比 用vuex来的高
                            //有一个误区： 来这里传递给子组件时
@@ -63,8 +62,6 @@ export default {
                                         //注意观察执行的循序。（差点陷入恐慌。。。。）                                   
 
                            this.comment = ele.comment
-                           console.log('ddddd')
-                           console.log(this.comment)
                            this.$store.commit('saveDetailData', {url:ele.url, name:ele.name,recom:ele.recom})
                         //传递多个参数,用对象的形式来传递
                        }

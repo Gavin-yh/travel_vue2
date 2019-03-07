@@ -7,7 +7,7 @@
             榜单--{{stateCity}}
         </div>
         <div class="home-icon border-left">
-            <router-link @click.native = "changeState" class="city" to = "/city">
+            <router-link class="city" to = "/city">
                 <p class="iconfont">&#xe60f;</p>
                 {{stateCity}}
             </router-link>
@@ -16,42 +16,25 @@
 </template>
 
 <script>
-import { mapState ,mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
     name: "defaultHeader",
-    data (){
-        return {
-            flag: false
-        }
-    },
     computed: {
         ...mapState({
             stateCity : state => state.city
         })
-    },
-    methods: {
-        ...mapMutations ({
-             chagefromRouteState: "chagefromRouteState"
-        }),
-        changeState (){
-           this.flag = true 
-        }
-    },
-    watch: {
-        $route (to ,from){
-            if(this.flag){
-                console.log('barlist')
-                this.chagefromRouteState(from.path)
-            }
-        }
-    },
+    }
 }
 </script>
 
 <style lang="stylus" scoped>
     @import '~style/mixin.styl'
     .Dheader-wrap
+        position fixed
+        z-index 9
+        width 100%
+        top 0rem
         display flex
         background #00bcd4
         .back-icon
